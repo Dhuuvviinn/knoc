@@ -1,0 +1,195 @@
+.profileMain{
+    width:100%;
+    padding: 3rem ;
+    display: flex;
+    overflow-x: hidden;
+    box-sizing: border-box;
+     
+}
+.ProfileSection{
+   width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.ImageSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+}
+.Username{
+    display: flex;
+    align-items: center;
+}
+.ProfileRating{
+    display: flex;
+    align-items: center;
+    margin-top: -1rem;
+}
+.logout{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: -1rem;
+    right: 5px;
+    font-weight: 500;
+font-size: 20px;
+line-height: 30px;
+
+color: #00C0C9;
+}
+.ImageSection > img{
+    aspect-ratio: 16/16;
+    width: 150px;
+    height: 150px;
+}
+.profileNavActivate{
+    color: #00C0C9;
+}
+.ProfileLeft{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16);
+border-radius: 10px;
+    justify-content: flex-start;
+    height: 133vh;
+}
+.Account{
+    /* background-color: blue; */
+   padding: 2rem;
+}
+.Account > h2{
+    border: 2px solid #00C0C9;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.AccountList{
+    display: flex;
+    flex-direction: column;
+}
+
+.AccountList ul li{
+    list-style: none;
+    line-height: 2rem;
+    margin-left:-2.1rem ;
+}
+.AccountList ul {
+    
+    margin: 0rem !important; 
+}
+.togglebutton{
+    display: none;
+}
+.ProfileRight{
+    width: 70%;
+}
+@media (max-width:900px) {
+    .profileMain{
+        width:100%;
+        padding:0rem;
+        
+    }
+    .ProfileRight{
+        width: 100%;
+    }
+    .ProfileLeft{
+        width: 0px;
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+        justify-content: flex-end;
+        position: absolute;
+        visibility: hidden;
+        transition: 0.4s;
+        overflow: hidden;
+       margin-left: 1rem;
+       margin-top: 4rem;
+       z-index: 4;
+    }
+   .ProfileLeft.activeee{
+    visibility: visible;
+    width: 80%;
+    padding-top: 4rem;
+
+   }
+   .togglebutton{
+    display: flex;
+    margin-top: 1rem;
+    /* margin-left: 1rem; */
+    margin-bottom: 1rem;
+    position: absolute;
+}
+    .logout{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        font-weight: 500;
+        font-size: 15px;
+      line-height: 30px;
+    
+       color: #00C0C9;
+    }
+    .ProfileLeft.activeee{
+        visibility: visible;
+        width: 92%;
+    
+       }
+}
+@media (max-width:300px) {
+    .profileMain{
+        width:100%;
+        padding:0rem
+    }
+    .ProfileLeft{
+        width: 0px;
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+        justify-content: flex-end;
+        position: absolute;
+        visibility: hidden;
+        transition: 0.7s;
+        overflow: hidden;
+        
+    }
+   .ProfileLeft.activeee{
+    visibility: visible;
+    width: 250px;
+    padding-top: 4rem;
+   }
+   .togglebutton{
+    display: flex;
+    margin-top: 2rem;
+    position: absolute;
+}
+    .logout{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        font-weight: 500;
+        font-size: 15px;    
+      line-height: 30px;
+    
+    color: #00C0C9;
+    }
+    .ProfileRight{
+        position: relative;
+    }
+}

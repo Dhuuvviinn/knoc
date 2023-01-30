@@ -1,0 +1,38 @@
+
+.Cat{
+  
+    padding: 1rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.11);
+    border-radius: 11.6623px;
+  /* background-color: aqua; */
+    margin: 0.5rem;
+}
+
+.forimage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.forimage > img{
+    width: 100%;
+    border-radius: 10px;
+}
+.Cat > p {
+    margin-left: 2rem;
+    font-weight: 700;
+  
+}
+a{
+    color: black;
+    list-style: none;
+    text-decoration: none;
+}
+.Cat > h4 {
+    margin-left: 2rem;
+    font-size: 30px;
+    margin-top: -0.5rem;
+    font-weight: 700;
+    margin-bottom: 0rem;
+}

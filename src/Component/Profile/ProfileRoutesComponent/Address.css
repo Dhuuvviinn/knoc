@@ -1,0 +1,64 @@
+.AddressMAin > h1{
+    font-weight: 500;
+font-size: 30px;
+line-height: 36px;
+border: 3px solid  #00C0C9;
+border-top: none;
+border-left: none;
+border-right:none ;
+width: 50%;
+padding-bottom: 1rem;
+}
+.AddressMAin{
+    padding: 3rem;
+    width: 100%;
+}
+.Address1{
+    display: flex;
+    width: 70%;
+border: 2px solid #000000;
+border-radius: 10px;
+padding: 1rem;
+border: 2px solid #000000;
+border-radius: 10px;
+margin-top: 3rem;
+justify-content: space-between;
+}
+.edit{
+    display: flex;
+    
+    margin: 0;
+}
+.edit p{
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width:750px){
+    .AddressMAin{
+        padding: 3rem;
+        width: 100%;
+      
+    }
+    .AddressMAin > h1{
+        font-weight: 500;
+        text-align: center;
+    font-size: 30px;
+    line-height: 36px;
+    border: 3px solid  #00C0C9;
+    border-top: none;
+    border-left: none;
+    border-right:none ;
+    width: 80%;
+    padding-bottom: 1rem;
+    }
+    .Address1{
+        display: flex;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin-top: 3rem;
+    }
+}

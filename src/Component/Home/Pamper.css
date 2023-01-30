@@ -1,0 +1,145 @@
+.PamperMain{
+    /* width: 100%; */
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+}
+.PamperTopSubMenu{ 
+    width: 100%;
+    background: linear-gradient(98.53deg, #00BFC8 -2.91%, #01A5AC 87.08%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top:     20px;
+}
+.Details{
+    width: 30%;
+   /* background-color: #01A5AC; */
+ 
+}
+.Details>img{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.Details > div{
+margin-left: 3rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.Details > div > h1{
+    margin-top: -3rem;
+    
+    color: #ffffff;
+    /* background-color: #202222; */
+}
+.taddy{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    
+}
+.taddy > img{
+    width: min(700px,100%);
+    margin-bottom: -2.9rem;
+}
+
+.PamperBottomSubMenu{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.Categ{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Categ > h2{
+font-weight: 600;
+font-size: 40px;
+color: #00C0C9;
+}
+.Categ > img{
+    margin-left: 1rem;
+}
+.BottomSubMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.border{
+    width: 80%;
+    border: 1px solid grey;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+ .bor > p{
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    height: 25px;
+}
+.active{
+color: #00C0C9;
+border: 2px solid #00C0C9 ;
+border-top: none;
+border-right: none;
+border-left: none;
+border-bottom: 5px solid #00BFC8;
+}
+
+.unactive{
+    color: gray;
+}
+.bor > p{
+
+cursor: pointer;
+}
+.CategoryData{
+    width: 100%;
+    margin-top: 3rem;
+}
+.subCategory{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+}
+@media (max-width:750px){
+    .Details>img{
+       display: none;
+    }
+    .taddy{
+        display: none;
+    }
+    .Categ > img{
+        margin-left: 1rem;
+    }
+    .Details{
+        width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+    .Details > div{
+       margin-left: 0rem;
+    }
+    .Details > div > h1{
+        margin-top: 0rem;
+        font-size: 20px;
+        color: #ffffff;
+      
+    }
+    .border{
+        width: 80%;
+        border: 1px solid grey;
+        border-left: none;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

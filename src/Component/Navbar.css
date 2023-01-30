@@ -1,0 +1,123 @@
+.mainNav{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90.06deg, #00C0C9 0.86%, #00A4AB 89.09%);
+    gap: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tadi{
+    width: 190px;
+}
+.main2Nav ul{
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+    
+}
+.main2Nav{
+    width: 70%;
+    /* background-color: aliceblue; */
+    display: flex   ;
+    justify-content: space-around;
+}
+.main2Nav p a{
+    font-weight: 500;
+font-size: 15px;
+line-height: 30px;
+
+color: rgba(0, 0, 0, 0.2);
+}
+.main2Nav ul li{
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+font-size: 1.2rem;
+    list-style: none;
+}
+.main2Nav ul li a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.2);
+
+}
+.topmedia{
+    display: none;
+}
+
+.main2Nav ul li.actives a {
+    color: white;
+    position: relative;
+    /* text-decoration: NONE; */
+  }
+.main2Nav ul li.actives a::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 20px;
+    height: 20px;
+    /* background-color: red; */
+  
+    background-image: url(../Image/Group\ 11.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+@media (max-width:967px) {
+    html , body{
+        font-size: 14px;
+    }
+    .main2Nav ul{
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        
+    }
+}
+
+@media (max-width:750px) {
+    .topmedia{
+        display: flex;margin-right: 3rem;
+    }
+    .mainNav{
+        display: flex;
+        justify-content: space-between;
+        
+        z-index: 13;
+    }
+    .main2Nav{
+        display: none;
+    }
+    .mediaNav{
+        top: 100%;
+        position: absolute;
+        left: 0;
+        background: linear-gradient(90.06deg, #00C0C9 0.86%, #00A4AB 89.09%);
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        animation-name: menu;
+        animation-duration: 2s;
+        overflow: hidden;
+    }
+    .mediaNav > ul > li{
+        list-style: none;
+        text-decoration: none;
+        margin: 4rem;
+        
+    }
+    .mediaNav > ul > li >a{
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: white;
+    }
+    @keyframes menu {
+        from {height: 0;}
+        to {height: 80vh;}
+      }
+}

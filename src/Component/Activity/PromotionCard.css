@@ -1,0 +1,50 @@
+.PromotionMainCard{
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+
+}
+.PromotionCard1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.PromotionCard1 > p{
+    font-weight: 600;
+font-size: 25px;
+line-height: 36px;
+
+color: #00C0C9;
+}
+.PromotionCard2{
+    width: 100%;
+}
+.PromotionCard2 > img{
+    width: 100%;
+    border-radius: 10px;
+}
+.PromotionCard3{
+    width: 100%;
+}
+.PromotionCard3Top{
+    width: 90%;
+}
+.PromotionCard3Top > p{
+    font-weight: 600;
+    font-size: 25px;
+}
+.PromotionCard3Top :nth-child(2){
+    margin-top: -1.3rem;
+    font-weight: 400;
+    font-size: 15px;
+}
+.PromotionCard3Bottom  >p {
+    font-weight: 600;
+    font-size: 25px;
+}
+.PromotionCard3Bottom :nth-child(2){
+    margin-top: -1.3rem;
+    font-weight: 400;
+    font-size: 15px;
+}
