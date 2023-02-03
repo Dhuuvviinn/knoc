@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getMessaging } from "firebase/messaging";
 import "firebase/storage"
 
 const firebaseConfig = {
@@ -14,4 +15,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth=getAuth(app)
+export const messaging = getMessaging(app);
+const provider = new GoogleAuthProvider();
 export {auth,app}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./Login.css"
 import image from  "../../Image/googleLogo.png"
@@ -7,30 +7,102 @@ import { app } from '../firease/firebase'
 import { async } from '@firebase/util'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import {getMessaging, getToken } from "firebase/messaging";
+import { messaging } from '../firease/firebase'
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 const Register = () => {
-  const nav = useNavigate()
+const [FcmToken,setFcmToken] = useState("")
+const nav = useNavigate()
   const provider = new GoogleAuthProvider();
 const appVerifier = window.recaptchaVerifier;
   const auth = getAuth(app);
 const register = async() =>{
   const response = await signInWithPopup(auth,provider)
   const userdata = response.user.providerData[0]
-
   localStorage.setItem('Userdata', JSON.stringify(userdata));
-    nav("/")
+  
 }
  const [number, setNumber] = useState()
 const [inputValues, setInputValues] = useState({
-  first :"",last:"",email: '', password: '',phone:"",number:""
+  firebase_id: " ", first :"",last:"",email: '', password: '',phone:"",number:""
 });
-
-
+const [otp,sendotp] = useState()
+console.log(FcmToken,"FcmToken")
+console.log(otp)
+const [changebutton, setchangebutton] = useState(true)
 const Textregister = async() =>{
   await createUserWithEmailAndPassword(auth, inputValues.email, inputValues.password)
    
 }
 
- const onCaptchVerify=()=>{window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+
+
+const requestPermission = async () => {
+  const persmission = await Notification.requestPermission();
+  if (persmission === "granted") {
+    //  ganrate token----
+  console.log("p3")
+const messaging = getMessaging(app)
+getToken(messaging,{vapidKey:"BAtJRquSO2Y38BXcbUiwlJe6-7TcxM4Y9pSjFcFtP6F8mP1fSgQYB_AObp2qBPMctZybADZPgceJHDn2T13GCHA"}).then((currentToken)=>{
+ 
+  if (currentToken) {
+    setFcmToken(currentToken)
+ 
+  }else {
+    // Show permission request UI
+    console.log('No registration token available. Request permission to generate one.');
+    // ...
+  }
+}).catch((err)=>{
+  console.log('An error occurred while retrieving token. ', err);
+})
+  
+  } else if (persmission === "denied") {
+    console.log("denied")
+  }
+}
+useEffect(() => {
+  requestPermission()
+}, [])
+const userDataEntry = async () =>{
+  console.log("data")
+  console.log(FcmToken)
+   const {data} = await axios.post("https://knocknoc-webpanel.ondemandservicesappinflutter.online/api/register",{   
+     firebase_id:`${inputValues.firebase_id}`,
+     fcm_token:`${FcmToken}`,
+     firstname:`${inputValues.first}`,
+     lastname:`${inputValues.last}`,
+     email:`${inputValues.email}`,
+     phonenumber:`${number}`,
+     gender:"male"
+ })
+ nav("/")
+ window.location.reload();
+ }  
+const  phoneNumberCheker = async () =>{
+  
+  const {data} = await axios.post("https://knocknoc-webpanel.ondemandservicesappinflutter.online/api/checkphonenumber",{phonenumber:`${number}`})
+ console.log(data)
+  alert("check Alert")
+  if (data.status == "400") {
+    alert("400")
+    alert("requestPermission")
+    requestPermission()
+    userDataEntry()
+    
+    console.log("add in table")
+  } 
+  else if (data.status == "200") {
+    alert("200")
+
+    alert("Phone number is already Register")
+  }
+}
+
+  
+ const onCaptchVerify=()=>{
+  window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
   'size': 'invisible',
   'callback': (response) => {
    
@@ -38,32 +110,32 @@ const Textregister = async() =>{
 
 }, auth)}   
 const onSubmitOTP = () =>{
-  console.log("object1")
   onCaptchVerify()
-  console.log("object2")
-
+  alert("phoneNumberCheker")
+ 
+  
   const phoneNumber = number;
   const appVerifier = window.recaptchaVerifier;
-  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+  signInWithPhoneNumber(auth,phoneNumber,appVerifier)
   .then((confirmationResult) => {
-    // SMS sent. Prompt user to type the code from the message, then sign the
-    // user in with confirmationResult.confirm(code).
     window.confirmationResult = confirmationResult;
-   alert()
-  
+   alert("opt sended")
+  setchangebutton(false)
   }).catch((error) => {
-    // Error; SMS not sent
-    // ...
   });
 }
 const verfiycode = () =>{
-  window.confirmationResult.confirm("").then((result) => {
+  window.confirmationResult.confirm(otp).then((result) => {
     // User signed in successfully.
+    phoneNumberCheker()
     const user = result.user;
-    alert("invalid otp")
+    console.log(user,"user")
+    console.log(user.uid)
+    inputValues.firebase_id = user.uid
+    alert("ss")
+ 
   }).catch((error) => {
-    // User couldn't sign in (bad verification code?)
-    // ...
+    
   });
 }
   
@@ -105,8 +177,9 @@ const verfiycode = () =>{
            <div id='recaptcha-container'>
             
            </div>
-          <button onClick={Textregister}>Register</button>
-          <button onClick={onSubmitOTP}>Send OTP</button>
+          {changebutton ? <button onClick={onSubmitOTP}>sendotp</button>:
+          <div><button onClick={verfiycode} >Verify</button> <input type="text" onChange={(e)=>sendotp(e.target.value)} /> </div>
+          }
       <div className='forgetpassword'>
       <Link>Forgot Password?</Link>
       <Link to="/login">already register</Link>

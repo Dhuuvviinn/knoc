@@ -15,6 +15,7 @@ import { Favorite } from '@mui/icons-material';
 import Favourites from './Component/Profile/ProfileRoutesComponent/Favourites';
 import Login from './Component/login/Login';
 import Register from './Component/login/Register';
+import Checking from './Component/Checking';
 function App() {
   return (
     <div>
@@ -24,7 +25,7 @@ function App() {
       <Route path="/" element={<Home />}/>
       <Route path="/featured" element={<Featured />}/>
       <Route path="/profile" element={<Profile />}>
-         <Route path="/profile" element={<Address />}/>
+            <Route path="/profile" element={<Address />}/>
            <Route path="/profile/payment" element={<Payment />}/>
            <Route path="/profile/package" element={<PamperMe />}/>
           <Route path="/profile/favourites" element={<Favourites/>}/>
@@ -39,6 +40,7 @@ function App() {
       <Route path="/pamping/:id/:subid" element={<CategoryDetail/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/Checker" element={<Checking/>}/>
       
 
       
